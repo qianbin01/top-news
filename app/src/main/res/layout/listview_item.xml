@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:text="测试标题"
+        android:textColor="#000000"
+        android:textSize="25sp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:textColor="#000000">
+
+        <TextView
+            android:id="@+id/realtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试分类"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="测试作者"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="测试时间"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="3"
+        android:src="@mipmap/ic_launcher" />
+</LinearLayout>

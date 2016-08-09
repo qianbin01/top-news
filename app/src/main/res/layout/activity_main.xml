@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FF0000">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="今日头条"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/mHorScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/mll_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:onClick="initEvent"
+                android:clickable="true"
+                android:text="头条"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/shehui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:onClick="initEvent"
+                android:text="社会"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/guonei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:onClick="initEvent"
+                android:text="国内"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/guoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:onClick="initEvent"
+                android:text="国际"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/yule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:onClick="initEvent"
+                android:text="娱乐"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/tiyu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:onClick="initEvent"
+                android:text="体育"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/junshi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:onClick="initEvent"
+                android:text="军事"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/keji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:onClick="initEvent"
+                android:text="科技"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/caijing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:onClick="initEvent"
+                android:text="财经"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/shishang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:onClick="initEvent"
+                android:text="时尚"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </android.support.v4.view.ViewPager>
+</LinearLayout>
