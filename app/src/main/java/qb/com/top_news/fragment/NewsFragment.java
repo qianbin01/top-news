@@ -46,6 +46,7 @@ public class NewsFragment extends BaseFragment {
     private String mUrl, url;
     private Gson gson;
     private RequestQueue mQueue;
+    private Bundle mBundle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -66,22 +67,28 @@ public class NewsFragment extends BaseFragment {
     public void initData() {
         mQueue = MyApplication.getHttpQueue();
         newsList = new ArrayList<News>();
+        mBundle=new Bundle();
         gson = new GsonBuilder().setPrettyPrinting().create();
-        switch (getArguments().getInt("flag")) {
+        switch (getArguments().getInt("url")) {
             case 0:
                 mUrl = "top";
+                mBundle.putString("flag",mUrl);
                 break;
             case 1:
                 mUrl = "shehui";
+                mBundle.putString("flag",mUrl);
                 break;
             case 2:
                 mUrl = "guonei";
+                mBundle.putString("flag",mUrl);
                 break;
             case 3:
                 mUrl = "guoji";
+                mBundle.putString("flag",mUrl);
                 break;
             case 4:
                 mUrl = "yule";
+                mBundle.putString("flag",mUrl);
                 break;
 
         }
@@ -123,9 +130,8 @@ public class NewsFragment extends BaseFragment {
         lvNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Bundle bundle = new Bundle();
-                bundle.putString("url", newsList.get(position).getUrl());
-                openActivity(WebActivity.class, bundle);
+                mBundle.putString("url", newsList.get(position).getUrl());
+                openActivity(WebActivity.class, mBundle);
             }
         });
     }

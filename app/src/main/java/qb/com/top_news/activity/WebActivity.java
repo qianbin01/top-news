@@ -21,6 +21,7 @@ public class WebActivity extends BaseActivity {
     private Bundle mBundle;
     private String url;
     private ProgressDialog dialog;
+    private String flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class WebActivity extends BaseActivity {
     protected void initData() {
         dialog = new ProgressDialog(WebActivity.this);
         mBundle = getIntent().getExtras();
+        flag = mBundle.getString("flag");
         url = mBundle.getString("url");
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);//设置可读取JavaScript网页
@@ -88,6 +90,7 @@ public class WebActivity extends BaseActivity {
         ivReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mBundle.putString("flag", flag);
                 openActivity(MainActivity.class, mBundle);
             }
         });

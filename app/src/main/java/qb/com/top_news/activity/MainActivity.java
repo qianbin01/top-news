@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         for (int i = 0; i < 5; i++) {
             mFragment = new NewsFragment();
             mBundle = new Bundle();
-            mBundle.putInt("flag", i);
+            mBundle.putInt("url", i);
             mFragment.setArguments(mBundle);
             mFragments.add(mFragment);
         }
@@ -74,11 +74,12 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             public void destroyItem(ViewGroup container, int position, Object object) {
             }
         };
-        resetColor();
+
     }
 
     protected void setAdapter() {
         mViewPager.setAdapter(mAdapter);
+        switchItem();
     }
 
     protected void initEvent() {
@@ -119,6 +120,40 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     private void resetColor() {
         for (int i = 0; i < mTextViews.size(); i++) {
             mTextViews.get(i).setTextColor(Color.BLACK);
+        }
+    }
+
+    private void switchItem() {
+        if (getIntent() != null) {
+            if (getIntent().getExtras() != null) {
+                if (getIntent().getExtras().getString("flag") != null) {
+                    switch (getIntent().getExtras().getString("flag")) {
+                        case "top":
+                            mViewPager.setCurrentItem(0);
+                            top.setTextColor(Color.RED);
+                            break;
+                        case "shehui":
+                            mViewPager.setCurrentItem(1);
+                            shehui.setTextColor(Color.RED);
+                            break;
+                        case "guonei":
+                            mViewPager.setCurrentItem(2);
+                            guonei.setTextColor(Color.RED);
+                            break;
+                        case "guoji":
+                            mViewPager.setCurrentItem(3);
+                            guoji.setTextColor(Color.RED);
+                            break;
+                        case "yule":
+                            mViewPager.setCurrentItem(4);
+                            yule.setTextColor(Color.RED);
+                            break;
+                    }
+                }
+            }
+        } else {
+            resetColor();
+            top.setTextColor(Color.RED);
         }
     }
 
