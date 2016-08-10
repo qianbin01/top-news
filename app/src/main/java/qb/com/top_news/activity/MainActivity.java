@@ -31,7 +31,9 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         setContentView(R.layout.activity_main);
         initView();
         initData();
+        resetColor();
         setAdapter();
+        initEvent();
     }
 
     protected void initView() {
@@ -83,7 +85,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     }
 
     protected void initEvent() {
-
+        mViewPager.addOnPageChangeListener(this);
     }
 
     public void initEvent(View v) {
@@ -150,10 +152,9 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
                             break;
                     }
                 }
+            }else{
+                top.setTextColor(Color.RED);
             }
-        } else {
-            resetColor();
-            top.setTextColor(Color.RED);
         }
     }
 
@@ -165,7 +166,28 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     @Override
     public void onPageSelected(int position) {
-
+        switch (position) {
+            case 0:
+                resetColor();
+                top.setTextColor(Color.RED);
+                break;
+            case 1:
+                resetColor();
+                shehui.setTextColor(Color.RED);
+                break;
+            case 2:
+                resetColor();
+                guonei.setTextColor(Color.RED);
+                break;
+            case 3:
+                resetColor();
+                guoji.setTextColor(Color.RED);
+                break;
+            case 4:
+                resetColor();
+                yule.setTextColor(Color.RED);
+                break;
+        }
     }
 
     @Override
