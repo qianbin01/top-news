@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,132 +10,110 @@
         android:layout_height="60dp"
         android:background="#FF0000">
 
+        <ImageView
+            android:id="@+id/ivItem"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/item" />
+
+        <qb.com.top_news.view.CircleImageView
+            android:id="@+id/ivHead"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/head" />
+
         <TextView
+            android:id="@+id/today_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="今日头条"
+            android:text="@string/title"
             android:textColor="#ffffff"
             android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/ivRefresh"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/today_title"
+            android:src="@drawable/refresh" />
     </RelativeLayout>
 
-    <HorizontalScrollView
-        android:id="@+id/mHorScrollView"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:scrollbars="none">
+    <LinearLayout
+        android:id="@+id/mll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
-        <LinearLayout
-            android:id="@+id/mll_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="5dp">
+        <TextView
+            android:id="@+id/top"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="initEvent"
+            android:text="@string/toutiao"
+            android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/top"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="25dp"
-                android:onClick="initEvent"
-                android:clickable="true"
-                android:text="头条"
-                android:textSize="25sp" />
+        <TextView
+            android:id="@+id/shehui"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="initEvent"
+            android:text="@string/shehui"
+            android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/shehui"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="25dp"
-                android:onClick="initEvent"
-                android:text="社会"
-                android:textSize="25sp" />
+        <TextView
+            android:id="@+id/guonei"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="initEvent"
+            android:text="@string/guonei"
+            android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/guonei"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="25dp"
-                android:onClick="initEvent"
-                android:text="国内"
-                android:textSize="25sp" />
+        <TextView
+            android:id="@+id/guoji"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="initEvent"
+            android:text="@string/guoji"
+            android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/guoji"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="25dp"
-                android:onClick="initEvent"
-                android:text="国际"
-                android:textSize="25sp" />
+        <TextView
+            android:id="@+id/yule"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="initEvent"
+            android:text="@string/yule"
+            android:textSize="25sp" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/yule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="25dp"
-                android:onClick="initEvent"
-                android:text="娱乐"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/tiyu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
-                android:onClick="initEvent"
-                android:text="体育"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/junshi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="25dp"
-                android:onClick="initEvent"
-                android:text="军事"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/keji"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="25dp"
-                android:onClick="initEvent"
-                android:text="科技"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/caijing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="25dp"
-                android:onClick="initEvent"
-                android:text="财经"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/shishang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="25dp"
-                android:onClick="initEvent"
-                android:text="时尚"
-                android:textSize="25sp" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/mViewPager"

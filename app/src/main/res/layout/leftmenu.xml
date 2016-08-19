@@ -1,0 +1,170 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#2b2b2b"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5">
+
+        <ImageView
+            android:id="@+id/weibo1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="30dp"
+            android:background="@drawable/sina_weibo" />
+
+        <ImageView
+            android:id="@+id/qq"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/weibo1"
+            android:background="@drawable/qq" />
+
+        <ImageView
+            android:id="@+id/weibo2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/weibo1"
+            android:background="@drawable/qq_weibo" />
+    </RelativeLayout>
+
+    <View
+        style="@style/Line_info"
+        android:layout_width="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp">
+
+                <TextView
+                    style="@style/Text_Info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/search"
+                    android:text="@string/search" />
+            </RelativeLayout>
+
+            <View
+                style="@style/Line_info"
+                android:layout_width="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp">
+
+                <TextView
+                    style="@style/Text_Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/like"
+                    android:text="@string/like" />
+            </RelativeLayout>
+
+            <View
+                style="@style/Line_info"
+                android:layout_width="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp">
+
+                <TextView
+                    style="@style/Text_Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/message"
+                    android:text="@string/message" />
+            </RelativeLayout>
+
+            <View
+                style="@style/Line_info"
+                android:layout_width="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp">
+
+                <TextView
+                    style="@style/Text_Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/setting"
+                    android:text="@string/setting" />
+            </RelativeLayout>
+
+            <View
+                style="@style/Line_info"
+                android:layout_width="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp">
+
+                <TextView
+                    style="@style/Text_Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/feedback"
+                    android:text="@string/feedback" />
+            </RelativeLayout>
+
+            <View
+                style="@style/Line_info"
+                android:layout_width="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp">
+
+                <TextView
+                    style="@style/Text_Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/appstore"
+                    android:text="@string/app" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        style="@style/Line_info"
+        android:layout_width="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btlogOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/logout"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="@drawable/logout_button"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp" />
+    </RelativeLayout>
+
+</LinearLayout>

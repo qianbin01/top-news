@@ -26,4 +26,7 @@ dependencies {
     compile files('libs/volly-1.0.11.jar')
     compile files('libs/gson-2.3.1.jar')
     compile files('libs/picasso-2.5.2.jar')
+    compile project(':sliding_menu')
+    compile files('libs/nineoldandroids-2.4.0.jar')
+    compile files('libs/xUtils-2.6.14.jar')
 }

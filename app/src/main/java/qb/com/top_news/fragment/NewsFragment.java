@@ -1,16 +1,14 @@
 package qb.com.top_news.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -31,22 +29,23 @@ import qb.com.top_news.R;
 import qb.com.top_news.activity.WebActivity;
 import qb.com.top_news.adatper.MyListViewAdapter;
 import qb.com.top_news.application.MyApplication;
+import qb.com.top_news.view.MyListView;
 import qb.com.top_news.vo.News;
 
-/**
- * Created by qianbin on 16/8/9.
- */
-public class NewsFragment extends BaseFragment {
+public class NewsFragment extends BaseFragment implements MyListView.IReflashListener {
 
-    private ListView lvNews;
+    private MyListView lvNews;
     private View view;
     private List<News> newsList;
     private MyListViewAdapter mAdapter;
     private String baseUrl = "http://v.juhe.cn/toutiao/index?key=6585a4c79cf4cc7d032d0cd3d4c400f5&type=";
-    private String mUrl, url;
+    private String mUrl;
+    public String url;
     private Gson gson;
     private RequestQueue mQueue;
     private Bundle mBundle;
+    private int lastVisibleIndex;
+    private int itemCount;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,36 +58,36 @@ public class NewsFragment extends BaseFragment {
     @Override
     public View initView(LayoutInflater inflater) {
         view = inflater.inflate(R.layout.news_fragment, null);
-        lvNews = (ListView) view.findViewById(R.id.lvNews);
+        lvNews = (MyListView) view.findViewById(R.id.lvNews);
         return view;
     }
 
     @Override
     public void initData() {
         mQueue = MyApplication.getHttpQueue();
-        newsList = new ArrayList<News>();
-        mBundle=new Bundle();
+        newsList = new ArrayList<>();
+        mBundle = new Bundle();
         gson = new GsonBuilder().setPrettyPrinting().create();
         switch (getArguments().getInt("url")) {
             case 0:
                 mUrl = "top";
-                mBundle.putString("flag",mUrl);
+                mBundle.putString("flag", mUrl);
                 break;
             case 1:
                 mUrl = "shehui";
-                mBundle.putString("flag",mUrl);
+                mBundle.putString("flag", mUrl);
                 break;
             case 2:
                 mUrl = "guonei";
-                mBundle.putString("flag",mUrl);
+                mBundle.putString("flag", mUrl);
                 break;
             case 3:
                 mUrl = "guoji";
-                mBundle.putString("flag",mUrl);
+                mBundle.putString("flag", mUrl);
                 break;
             case 4:
                 mUrl = "yule";
-                mBundle.putString("flag",mUrl);
+                mBundle.putString("flag", mUrl);
                 break;
 
         }
@@ -100,7 +99,7 @@ public class NewsFragment extends BaseFragment {
         lvNews.setAdapter(mAdapter);
     }
 
-    private void doVolley(String url) {
+    public void doVolley(String url) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -112,6 +111,7 @@ public class NewsFragment extends BaseFragment {
                     mAdapter = new MyListViewAdapter(getActivity(), newsList);
                     mAdapter.notifyDataSetChanged();
                     setAdapter();
+                    System.out.println("网络无脑测试中");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -134,7 +134,56 @@ public class NewsFragment extends BaseFragment {
                 openActivity(WebActivity.class, mBundle);
             }
         });
+
+//        lvNews.setOnScrollListener(this);
+        lvNews.setInterface(this);
+
     }
 
+    public String getUrl() {
+        return url;
+    }
 
+    @Override
+    public void onReflash() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                itemCount = mAdapter.getCount();
+                if (itemCount + 10 > mAdapter.MAX_ITEM) {
+                    mAdapter.count = mAdapter.MAX_ITEM;
+                    mAdapter.notifyDataSetChanged();
+                    Toast.makeText(getActivity(), "对不起，暂时没有新数据了", Toast.LENGTH_SHORT).show();
+                } else {
+                    mAdapter.count = itemCount + 10;
+                    mAdapter.notifyDataSetChanged();
+                }
+                lvNews.reflashCompleted();
+            }
+        }, 2000);
+
+    }
+
+//    @Override
+//    public void onScrollStateChanged(AbsListView view, int scrollState) {
+//        if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && lastVisibleIndex == mAdapter.getCount() - 1) {
+//            itemCount = mAdapter.getCount();
+//            if (itemCount + 10 > mAdapter.MAX_ITEM) {
+//                mAdapter.count = mAdapter.MAX_ITEM;
+//                mAdapter.notifyDataSetChanged();
+//                System.out.println("ABC" + mAdapter.getCount());
+//            } else {
+//                mAdapter.count = itemCount + 10;
+//                mAdapter.notifyDataSetChanged();
+//                System.out.println("123" + mAdapter.getCount());
+//            }
+//
+//        }
+//    }
+//
+//    @Override
+//    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//        lastVisibleIndex = firstVisibleItem + visibleItemCount - 1;
+//    }
 }

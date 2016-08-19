@@ -2,12 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash"
     android:orientation="vertical">
 
-    <qb.com.top_news.view.MyListView
-        android:id="@+id/lvNews"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </qb.com.top_news.view.MyListView>
 </LinearLayout>

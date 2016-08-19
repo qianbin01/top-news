@@ -8,33 +8,38 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lidroid.xutils.DbUtils;
+import com.lidroid.xutils.db.sqlite.Selector;
+import com.lidroid.xutils.exception.DbException;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import qb.com.top_news.R;
+import qb.com.top_news.application.MyApplication;
 import qb.com.top_news.vo.News;
 
-/**
- * Created by qianbin on 16/8/9.
- */
 public class MyListViewAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
     private List<News> newsList;
+    private DbUtils db;
+    public int count;
+    public int MAX_ITEM;
 
     public MyListViewAdapter(Context mContext, List<News> newsList) {
         this.mContext = mContext;
         mInflater = LayoutInflater.from(mContext);
         this.newsList = newsList;
-    }
-
-    public MyListViewAdapter() {
+        db = MyApplication.getDb();
+        MAX_ITEM = newsList.size();
+        count = MAX_ITEM / 3;
     }
 
     @Override
     public int getCount() {
-        return newsList.size();
+        return count;
     }
 
     @Override
@@ -64,13 +69,21 @@ public class MyListViewAdapter extends BaseAdapter {
         }
         viewHolder.title.setText(newsList.get(position).getTitle());
         viewHolder.author.setText(newsList.get(position).getAuthor_name());
-        if(newsList.get(position).getRealtype()!=null) {
+        if (newsList.get(position).getRealtype() != null) {
             viewHolder.realtype.setText(newsList.get(position).getRealtype());
-        }else{
+        } else {
             viewHolder.realtype.setText(newsList.get(position).getCategory());
         }
         viewHolder.date.setText(newsList.get(position).getDate());
         Picasso.with(mContext).load(newsList.get(position).getThumbnail_pic_s03()).into(viewHolder.pic);
+        try {
+            News news = db.findFirst(Selector.from(News.class).where("title", "=", newsList.get(position).getTitle()));
+            if (news == null) {
+                db.save(newsList.get(position));
+            }
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
 
         return convertView;
     }

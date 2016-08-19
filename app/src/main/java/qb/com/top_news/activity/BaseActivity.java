@@ -6,9 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import qb.com.top_news.utils.ActivityController;
 
-/**
- * Created by qianbin on 16/8/9.
- */
 public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,5 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void finishAll() {
         ActivityController.finishAll();
     }
+
+
 
 }

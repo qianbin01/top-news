@@ -1,9 +1,8 @@
 package qb.com.top_news.vo;
 
-/**
- * Created by qianbin on 16/8/9.
- */
+
 public class News {
+    private int id;
     private String title;
     private String date;
     private String realtype;
@@ -26,7 +25,13 @@ public class News {
         this.thumbnail_pic_s03 = thumbnail_pic_s03;
         this.url = url;
     }
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getTitle() {
         return title;
     }

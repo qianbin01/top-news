@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">top-news</string>
+    <string name="info">登录后,有更多精彩内容等着你！</string>
+    <string name="search">搜索</string>
+    <string name="like">收藏</string>
+    <string name="message">消息</string>
+    <string name="app">应用</string>
+    <string name="setting">设置</string>
+    <string name="feedback">反馈</string>
+    <string name="title">今日头条</string>
+    <string name="toutiao">头条</string>
+    <string name="shehui">社会</string>
+    <string name="guonei">国内</string>
+    <string name="guoji">国际</string>
+    <string name="yule">娱乐</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="forget">忘记密码</string>
+    <string name="username">用户名</string>
+    <string name="hintPhone">请输入手机号</string>
+    <string name="hintPassword">请输入密码</string>
+    <string name="password">密  码</string>
+    <string name="phone">手机号</string>
+    <string name="logout">注销</string>
+    <string name="down">上拉加载更多</string>
+    <string name="up">下拉完成刷新</string>
+    <string name="loose">松开即将刷新</string>
+    <string name="refreshing">正在刷新</string>
 </resources>

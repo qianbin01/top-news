@@ -10,8 +10,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_weight="1"
-        android:gravity="left|center_vertical"
-        android:text="测试标题"
+        android:gravity="start|center_vertical"
         android:textColor="#000000"
         android:textSize="25sp" />
 
@@ -27,7 +26,6 @@
             android:id="@+id/realtype"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="测试分类"
             android:textColor="#000000"
             android:textSize="15sp" />
 
@@ -36,7 +34,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="测试作者"
             android:textColor="#000000"
             android:textSize="15sp" />
 
@@ -44,8 +41,7 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="测试时间"
+            android:layout_alignParentEnd="true"
             android:textColor="#000000"
             android:textSize="15sp" />
     </RelativeLayout>

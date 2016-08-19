@@ -1,25 +1,20 @@
 package qb.com.top_news.activity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
 import qb.com.top_news.R;
 
-/**
- * Created by qianbin on 16/8/9.
- */
+
 public class WebActivity extends BaseActivity {
     private WebView mWebView;
     private ImageView ivReturn;
     private Bundle mBundle;
-    private String url;
     private ProgressDialog dialog;
     private String flag;
 
@@ -43,7 +38,7 @@ public class WebActivity extends BaseActivity {
         dialog = new ProgressDialog(WebActivity.this);
         mBundle = getIntent().getExtras();
         flag = mBundle.getString("flag");
-        url = mBundle.getString("url");
+        String url = mBundle.getString("url");
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);//设置可读取JavaScript网页
         webSettings.setAllowFileAccess(true);//可读取文件
