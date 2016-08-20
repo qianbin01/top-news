@@ -29,4 +29,5 @@ dependencies {
     compile project(':sliding_menu')
     compile files('libs/nineoldandroids-2.4.0.jar')
     compile files('libs/xUtils-2.6.14.jar')
+    compile files('libs/jsoup-1.8.1.jar')
 }

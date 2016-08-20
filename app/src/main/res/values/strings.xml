@@ -26,4 +26,9 @@
     <string name="up">下拉完成刷新</string>
     <string name="loose">松开即将刷新</string>
     <string name="refreshing">正在刷新</string>
+    <string name="download">下载</string>
+    <string name="stars">评分</string>
+    <string name="base">【基本信息】</string>
+    <string name="sorry">抱歉，暂无详细信息</string>
+
 </resources>

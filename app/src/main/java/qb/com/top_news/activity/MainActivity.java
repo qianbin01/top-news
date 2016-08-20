@@ -39,7 +39,7 @@ import qb.com.top_news.fragment.NewsFragment;
 import qb.com.top_news.utils.ImageUtils;
 import qb.com.top_news.vo.User;
 
-public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener{
+public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
     private ViewPager mViewPager;
     private List<Fragment> mFragments;
     private FragmentPagerAdapter mAdapter;
@@ -47,13 +47,17 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     private List<TextView> mTextViews;
     private SlidingMenu menu;
     private TextView top, shehui, guonei, guoji, yule;
-    private Button btlogOut;
+
     private NewsFragment mFragment;
 
     private String[] items = new String[]{"选择本地图片", "拍照"};
     private static final String SHAREDPREFERENCES_NAME = "Login_Status";
     private DbUtils db;
     private User user;
+
+    //menu item
+    private Button btLogOut;
+    private TextView tvSearch, tvApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +103,9 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         //为侧滑菜单设置布局
         menu.setMenu(R.layout.leftmenu);
-        btlogOut = (Button) menu.findViewById(R.id.btlogOut);
+        btLogOut = (Button) menu.findViewById(R.id.btlogOut);
+        tvSearch = (TextView) menu.findViewById(R.id.tvSearch);
+        tvApp = (TextView) menu.findViewById(R.id.tvApp);
     }
 
     protected void initData() {
@@ -189,11 +195,23 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
                 }).show();
             }
         });
-        btlogOut.setOnClickListener(new View.OnClickListener() {
+        btLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivity(LoginActivity.class);
                 finish();
+            }
+        });
+        tvSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(SearchActivity.class);
+            }
+        });
+        tvApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(AppActivity.class);
             }
         });
     }

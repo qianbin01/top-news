@@ -44,7 +44,6 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
     private Gson gson;
     private RequestQueue mQueue;
     private Bundle mBundle;
-    private int lastVisibleIndex;
     private int itemCount;
 
     @Override
@@ -135,7 +134,6 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
             }
         });
 
-//        lvNews.setOnScrollListener(this);
         lvNews.setInterface(this);
 
     }
@@ -150,14 +148,19 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                itemCount = mAdapter.getCount();
-                if (itemCount + 10 > mAdapter.MAX_ITEM) {
-                    mAdapter.count = mAdapter.MAX_ITEM;
-                    mAdapter.notifyDataSetChanged();
-                    Toast.makeText(getActivity(), "对不起，暂时没有新数据了", Toast.LENGTH_SHORT).show();
-                } else {
-                    mAdapter.count = itemCount + 10;
-                    mAdapter.notifyDataSetChanged();
+                if (lvNews.bottomFlag) {
+                    itemCount = mAdapter.getCount();
+                    if (itemCount + 10 > mAdapter.MAX_ITEM) {
+                        mAdapter.count = mAdapter.MAX_ITEM;
+                        mAdapter.notifyDataSetChanged();
+                        Toast.makeText(getActivity(), "对不起，暂时没有新数据了", Toast.LENGTH_SHORT).show();
+                    } else {
+                        mAdapter.count = itemCount + 10;
+                        mAdapter.notifyDataSetChanged();
+                    }
+
+                }else if(lvNews.topFlag){
+                    Toast.makeText(getActivity(), "下拉刷新测试中", Toast.LENGTH_SHORT).show();
                 }
                 lvNews.reflashCompleted();
             }
@@ -165,25 +168,4 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
 
     }
 
-//    @Override
-//    public void onScrollStateChanged(AbsListView view, int scrollState) {
-//        if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && lastVisibleIndex == mAdapter.getCount() - 1) {
-//            itemCount = mAdapter.getCount();
-//            if (itemCount + 10 > mAdapter.MAX_ITEM) {
-//                mAdapter.count = mAdapter.MAX_ITEM;
-//                mAdapter.notifyDataSetChanged();
-//                System.out.println("ABC" + mAdapter.getCount());
-//            } else {
-//                mAdapter.count = itemCount + 10;
-//                mAdapter.notifyDataSetChanged();
-//                System.out.println("123" + mAdapter.getCount());
-//            }
-//
-//        }
-//    }
-//
-//    @Override
-//    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-//        lastVisibleIndex = firstVisibleItem + visibleItemCount - 1;
-//    }
 }

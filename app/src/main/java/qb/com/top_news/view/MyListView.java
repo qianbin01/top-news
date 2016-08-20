@@ -26,8 +26,8 @@ public class MyListView extends ListView implements AbsListView.OnScrollListener
     int scrollState;//当前滚动状态
     int first;
     int last;
-    boolean bottomFlag;//标记是否在lv最底端按下
-    boolean topFlag;//标记是否在lv最顶端按下
+    public boolean bottomFlag;//标记是否在lv最底端按下
+    public boolean topFlag;//标记是否在lv最顶端按下
     int startY;
     int state_bottom;//当前的状态
     int state_up;//当前的状态

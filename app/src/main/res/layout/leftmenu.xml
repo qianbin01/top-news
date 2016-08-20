@@ -55,8 +55,9 @@
                 android:layout_height="80dp">
 
                 <TextView
+                    android:id="@+id/tvSearch"
                     style="@style/Text_Info"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:drawableStart="@drawable/search"
                     android:text="@string/search" />
@@ -71,6 +72,7 @@
                 android:layout_height="80dp">
 
                 <TextView
+                    android:id="@+id/tvLike"
                     style="@style/Text_Info"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -87,6 +89,7 @@
                 android:layout_height="80dp">
 
                 <TextView
+                    android:id="@+id/tvMessage"
                     style="@style/Text_Info"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -103,6 +106,7 @@
                 android:layout_height="80dp">
 
                 <TextView
+                    android:id="@+id/tvSetting"
                     style="@style/Text_Info"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -119,6 +123,7 @@
                 android:layout_height="80dp">
 
                 <TextView
+                    android:id="@+id/tvFeedback"
                     style="@style/Text_Info"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -135,6 +140,7 @@
                 android:layout_height="80dp">
 
                 <TextView
+                    android:id="@+id/tvApp"
                     style="@style/Text_Info"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -159,12 +165,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/logout_button"
             android:text="@string/logout"
             android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:background="@drawable/logout_button"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp" />
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </LinearLayout>
