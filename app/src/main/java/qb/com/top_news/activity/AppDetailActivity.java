@@ -1,9 +1,9 @@
 package qb.com.top_news.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 
 
 import qb.com.top_news.R;
+import qb.com.top_news.service.DownloadService;
 import qb.com.top_news.utils.SpiderApp;
 import qb.com.top_news.vo.AppDetail;
 
@@ -74,13 +75,24 @@ public class AppDetailActivity extends BaseActivity {
                 if (mDetail.getDesc() != "") {
                     desc.setText(mDetail.getDesc());
                 }
-                Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath1()).resize(300, 300).into(pic1);
-                Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath2()).resize(300, 300).into(pic2);
-                Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath3()).resize(300, 300).into(pic3);
-                Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath4()).resize(300, 300).into(pic4);
-                Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath5()).resize(300, 300).into(pic5);
-                Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath6()).resize(300, 300).into(pic6);
-
+                if (mDetail.getPicPath1() != null) {
+                    Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath1()).resize(300, 300).into(pic1);
+                }
+                if (mDetail.getPicPath2() != null) {
+                    Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath2()).resize(300, 300).into(pic2);
+                }
+                if (mDetail.getPicPath3() != null) {
+                    Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath3()).resize(300, 300).into(pic3);
+                }
+                if (mDetail.getPicPath4() != null) {
+                    Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath4()).resize(300, 300).into(pic4);
+                }
+                if (mDetail.getPicPath5() != null) {
+                    Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath5()).resize(300, 300).into(pic5);
+                }
+                if (mDetail.getPicPath6() != null) {
+                    Picasso.with(AppDetailActivity.this).load(mDetail.getPicPath6()).resize(300, 300).into(pic6);
+                }
             }
         };
         myThread = new MyThread(handler);
@@ -103,13 +115,25 @@ public class AppDetailActivity extends BaseActivity {
                 myThread.interrupt();
                 myThread = null;
                 openActivity(AppActivity.class);
+
                 finish();
             }
         });
         download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("别急，在测试");
+
+//                Intent intent = new Intent(AppDetailActivity.this, DownloadService.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url", getIntent().getExtras().getString("down"));
+                if (getIntent().getExtras().getString("down") != null) {
+                    System.out.println("下载地址:" + getIntent().getExtras().getString("down"));
+                    bundle.putString("filename", getIntent().getExtras().getString("name"));
+                    openActivity(TestActivity.class, bundle);
+                }
+//                intent.putExtras(bundle);
+
+
             }
         });
     }
@@ -131,5 +155,8 @@ public class AppDetailActivity extends BaseActivity {
             handler.sendMessage(message);
 
         }
+
     }
 }
+
+

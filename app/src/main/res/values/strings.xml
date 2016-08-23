@@ -30,5 +30,31 @@
     <string name="stars">评分</string>
     <string name="base">【基本信息】</string>
     <string name="sorry">抱歉，暂无详细信息</string>
-
+    <string name="clean">清理缓存</string>
+    <string name="version">当前版本</string>
+    <string name="first_version">1.1.1</string>
+    <string name="downManager">下载管理</string>
+    <string name="userManager">账号管理</string>
+    <string name="about">关于作者</string>
+    <string name="signature">个性签名</string>
+    <string name="nickname">昵称</string>
+    <string name="changePass">修改密码</string>
+    <string name="quit">退出登录</string>
+    <string name="signature_test">这家伙很懒，都不想BB。</string>
+    <string name="nick_test">我的灵性有一百</string>
+    <string name="sure">确认</string>
+    <string name="cancel">取消</string>
+    <string name="newPass">新密码</string>
+    <string name="surePass">确认密码</string>
+    <string name="input">input you want</string>
+    <string name="resume">个人简介:</string>
+    <string name="resumeDetail">大三开始自学安卓，希望获得一份相关的工作，有意者请联系。</string>
+    <string name="blog">个人博客:</string>
+    <string name="blogDetail">http://blog.csdn.net/hold_bin</string>
+    <string name="qq">qq:</string>
+    <string name="qqDetail">236490794</string>
+    <string name="email">个人邮箱</string>
+    <string name="emailDetail">236490794@qq.com</string>
+    <string name="github">github地址:</string>
+    <string name="githubDetail">https://github.com/qianbin01</string>
 </resources>

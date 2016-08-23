@@ -29,7 +29,9 @@
             android:name=".activity.SearchActivity"
             android:windowSoftInputMode="stateHidden" />
 
-        <activity android:name=".activity.SettingActivity" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".activity.LikeActivity" />
         <activity android:name=".activity.MessageActivity" />
         <activity android:name=".activity.FeedbackActivity" />
@@ -38,9 +40,14 @@
             android:launchMode="singleTask"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".activity.AppDetailActivity" />
+        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.UserManagerActivity"/>
+        <activity android:name=".activity.AboutActivity"/>
+        <service android:name=".service.DownloadService" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 </manifest>

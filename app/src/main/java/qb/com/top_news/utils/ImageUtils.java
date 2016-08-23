@@ -55,8 +55,8 @@ public class ImageUtils {
         intent.putExtra("aspectY", 1);
 
         // outputX , outputY : 裁剪图片宽高
-        intent.putExtra("outputX", 480);
-        intent.putExtra("outputY", 480);
+        intent.putExtra("outputX", 80);
+        intent.putExtra("outputY", 80);
         intent.putExtra("return-data", true);
 
         activity.startActivityForResult(intent, CODE_RESULT_REQUEST);

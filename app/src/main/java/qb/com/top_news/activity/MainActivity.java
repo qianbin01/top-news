@@ -1,9 +1,11 @@
 package qb.com.top_news.activity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -17,7 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,7 +34,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qb.com.top_news.R;
-import qb.com.top_news.adatper.MyListViewAdapter;
 import qb.com.top_news.application.MyApplication;
 import qb.com.top_news.fragment.NewsFragment;
 import qb.com.top_news.utils.ImageUtils;
@@ -54,10 +54,10 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     private static final String SHAREDPREFERENCES_NAME = "Login_Status";
     private DbUtils db;
     private User user;
-
+    private IntentFilter intentFilter;
     //menu item
     private Button btLogOut;
-    private TextView tvSearch, tvApp;
+    private TextView tvSearch, tvApp, tvSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +106,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         btLogOut = (Button) menu.findViewById(R.id.btlogOut);
         tvSearch = (TextView) menu.findViewById(R.id.tvSearch);
         tvApp = (TextView) menu.findViewById(R.id.tvApp);
+        tvSetting = (TextView) menu.findViewById(R.id.tvSetting);
     }
 
     protected void initData() {
@@ -147,6 +148,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         } catch (DbException e) {
             e.printStackTrace();
         }
+        intentFilter = new IntentFilter("change_head");
     }
 
     protected void setAdapter() {
@@ -212,6 +214,12 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             @Override
             public void onClick(View v) {
                 openActivity(AppActivity.class);
+            }
+        });
+        tvSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(SettingActivity.class);
             }
         });
     }
@@ -382,4 +390,26 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+    BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                SetHeadByDb();
+            } catch (DbException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(mReceiver);
+        super.onDestroy();
+    }
 }

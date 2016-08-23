@@ -129,7 +129,7 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
         lvNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mBundle.putString("url", newsList.get(position).getUrl());
+                mBundle.putString("url", newsList.get(position-1).getUrl());//因为加了header position顺序移动1位
                 openActivity(WebActivity.class, mBundle);
             }
         });

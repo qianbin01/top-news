@@ -6,16 +6,20 @@ public class User {
     private String phone;
     private String password;
     private String headPath;
+    private String nickname;
+    private String signature;
 
-    public User() {
-    }
-
-    public User(int id, String phone, String password, String headPath) {
-
+    public User(int id, String phone, String password, String headPath, String nickname, String signature) {
         this.id = id;
         this.phone = phone;
         this.password = password;
         this.headPath = headPath;
+        this.nickname = nickname;
+        this.signature = signature;
+    }
+
+    public User() {
+
     }
 
     public int getId() {
@@ -48,5 +52,21 @@ public class User {
 
     public void setHeadPath(String headPath) {
         this.headPath = headPath;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 }

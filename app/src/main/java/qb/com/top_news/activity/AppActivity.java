@@ -107,6 +107,7 @@ public class AppActivity extends BaseActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("detail", list.get(position).getDetail());
                 bundle.putString("down", list.get(position).getDownPath());
+                System.out.println(list.get(position).getDownPath());
                 bundle.putString("name", list.get(position).getName());
                 bundle.putString("img", list.get(position).getImgPath());
                 bundle.putString("star", list.get(position).getStars());

@@ -34,7 +34,7 @@ public class CircleImageView extends ImageView {
         Drawable drawable = getDrawable();
         if (drawable != null) {
             Bitmap bitmap = drawableToBitmap(drawable);
-            Bitmap b = getRoundBitmap(bitmap,180);       //360为一个圆形！改变这个值，可以根据自己的需求来设定
+            Bitmap b = getRoundBitmap(bitmap,360);       //360为一个圆形！改变这个值，可以根据自己的需求来设定
             final Rect rectSrc = new Rect(0, 0, b.getWidth(), b.getHeight());
             final Rect rectDest = new Rect(0, 0, getWidth(), getHeight());
             mPaint.reset();
