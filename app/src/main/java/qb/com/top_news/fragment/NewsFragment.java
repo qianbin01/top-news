@@ -1,5 +1,9 @@
 package qb.com.top_news.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -24,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import qb.com.top_news.R;
 import qb.com.top_news.activity.WebActivity;
@@ -58,6 +63,7 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
     public View initView(LayoutInflater inflater) {
         view = inflater.inflate(R.layout.news_fragment, null);
         lvNews = (MyListView) view.findViewById(R.id.lvNews);
+
         return view;
     }
 
@@ -110,7 +116,6 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
                     mAdapter = new MyListViewAdapter(getActivity(), newsList);
                     mAdapter.notifyDataSetChanged();
                     setAdapter();
-                    System.out.println("网络无脑测试中");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -129,8 +134,9 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
         lvNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mBundle.putString("url", newsList.get(position-1).getUrl());//因为加了header position顺序移动1位
+                mBundle.putString("url", newsList.get(position - 1).getUrl());//因为加了header position顺序移动1位
                 openActivity(WebActivity.class, mBundle);
+//                System.out.println("webView需要优化，后期再加入把");
             }
         });
 
@@ -159,7 +165,7 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
                         mAdapter.notifyDataSetChanged();
                     }
 
-                }else if(lvNews.topFlag){
+                } else if (lvNews.topFlag) {
                     Toast.makeText(getActivity(), "下拉刷新测试中", Toast.LENGTH_SHORT).show();
                 }
                 lvNews.reflashCompleted();
@@ -167,5 +173,6 @@ public class NewsFragment extends BaseFragment implements MyListView.IReflashLis
         }, 2000);
 
     }
+
 
 }

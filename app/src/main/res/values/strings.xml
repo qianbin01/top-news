@@ -2,6 +2,8 @@
     <string name="app_name">top-news</string>
     <string name="info">登录后,有更多精彩内容等着你！</string>
     <string name="search">搜索</string>
+    <string name="search_news">请输入需要搜索的新闻</string>
+    <string name="search_app">请输入需要搜索的app</string>
     <string name="like">收藏</string>
     <string name="message">消息</string>
     <string name="app">应用</string>
@@ -57,4 +59,21 @@
     <string name="emailDetail">236490794@qq.com</string>
     <string name="github">github地址:</string>
     <string name="githubDetail">https://github.com/qianbin01</string>
+    <string name="chat">聊天</string>
+    <string name="contact">通讯录</string>
+    <string name="system">系统通知</string>
+    <string name="opinion">我的意见</string>
+    <string name="question">常见问题</string>
+    <string name="my_opinion">期待你的意见反馈</string>
+    <string name="question1">问:我喜欢/不喜欢A类文章，我可以多点几下赞/踩吗?</string>
+    <string name="answer1">答:你好，我们设定为每个用户对每篇文章只可分别进行10次赞和踩的操作，防止一些用户的不良操作，带来的不便敬请谅解。</string>
+    <string name="question2">问:我的头条app不可以刷新加载怎么办?</string>
+    <string name="answer2">答:你好，一般这种问题都是由于网络下载造成，本app采用聚合公开的api开发，也可能是一段时间内提供的新闻只有这么多，抱歉。</string>
+    <string name="question3">问:如何分享文件到微博/QQ?</string>
+    <string name="answer3">答:目前版本正在调试中，预计会在下个版本中加入。</string>
+    <string name="question4">问:接下来的版本更新中会加入什么功能？</string>
+    <string name="answer4">答:接下来将加入视频播放，第三方软件分享，商城，邀请好友等功能，敬请期待!</string>
+    <string name="question5">问:如何联系你们？</string>
+    <string name="answer5">答:在设置选项卡中，关于作者，就能获得作者的相关信息</string>
+
 </resources>

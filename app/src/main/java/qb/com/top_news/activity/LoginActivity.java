@@ -100,21 +100,25 @@ public class LoginActivity extends BaseActivity {
                 Toast.makeText(this, "登录失败", Toast.LENGTH_SHORT).show();
             }
         } else {
-            users = db.findAll(Selector.from(User.class).where("phone", "=", phone));
-            if (users.size() == 0) {
-                User user = new User();
-                user.setPhone(phone);
-                user.setPassword(password);
-                db.save(user);
-                Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
-                login_title.setText(R.string.login);
-                register_title.setText(R.string.register);
-                btLogin.setText(R.string.login);
-                etPhone.setText("");
-                etPassword.setText("");
-                isLogin = true;
+            if (phone.length() != 11 || password.length() < 6 || password.length() > 16) {
+                Toast.makeText(LoginActivity.this, "手机长度11位，密码长度6-16位", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "用户名已存在", Toast.LENGTH_SHORT).show();
+                users = db.findAll(Selector.from(User.class).where("phone", "=", phone));
+                if (users.size() == 0) {
+                    User user = new User();
+                    user.setPhone(phone);
+                    user.setPassword(password);
+                    db.save(user);
+                    Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
+                    login_title.setText(R.string.login);
+                    register_title.setText(R.string.register);
+                    btLogin.setText(R.string.login);
+                    etPhone.setText("");
+                    etPassword.setText("");
+                    isLogin = true;
+                } else {
+                    Toast.makeText(this, "用户名已存在", Toast.LENGTH_SHORT).show();
+                }
             }
         }
 

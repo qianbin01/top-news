@@ -19,6 +19,7 @@ public class AboutActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_layout);
         ViewUtils.inject(this);
+
     }
 
     @Override

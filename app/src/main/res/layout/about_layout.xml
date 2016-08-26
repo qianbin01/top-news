@@ -8,6 +8,7 @@
 
 
     <TextView
+        android:id="@+id/tvTest1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -16,6 +17,7 @@
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/tvTest6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -24,6 +26,7 @@
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/tvTest2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -40,6 +43,7 @@
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/tvTest3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -56,6 +60,7 @@
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/tvTest4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -72,6 +77,7 @@
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/tvTest5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

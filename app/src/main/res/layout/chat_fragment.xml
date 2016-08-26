@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <qb.com.top_news.view.MyListView
-        android:id="@+id/lvNews"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </qb.com.top_news.view.MyListView>
+    <ListView
+        android:id="@+id/lvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </ListView>
 </LinearLayout>

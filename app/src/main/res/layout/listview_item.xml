@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="300dp"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical">
 
     <TextView
@@ -46,11 +47,53 @@
             android:textSize="15sp" />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/pic"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="3"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_weight="3">
+
+        <ImageView
+            android:id="@+id/pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/like"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/like_normol" />
+
+        <TextView
+            android:id="@+id/tvCai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/like"
+            android:drawableStart="@drawable/cai_down"
+            android:gravity="center_vertical" />
+
+
+        <TextView
+            android:id="@+id/tvZan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/tvCai"
+            android:drawableStart="@drawable/zan_up"
+            android:gravity="center_vertical" />
+
+
+    </RelativeLayout>
+
+
 </LinearLayout>

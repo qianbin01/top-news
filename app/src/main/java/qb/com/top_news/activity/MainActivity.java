@@ -57,12 +57,12 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     private IntentFilter intentFilter;
     //menu item
     private Button btLogOut;
-    private TextView tvSearch, tvApp, tvSetting;
+    private TextView tvSearch, tvApp, tvSetting, tvLike, tvMessage, tvFeedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_layout);
         initView();
         setSlidingMenu();
         initData();
@@ -107,6 +107,9 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         tvSearch = (TextView) menu.findViewById(R.id.tvSearch);
         tvApp = (TextView) menu.findViewById(R.id.tvApp);
         tvSetting = (TextView) menu.findViewById(R.id.tvSetting);
+        tvLike = (TextView) findViewById(R.id.tvLike);
+        tvMessage = (TextView) findViewById(R.id.tvMessage);
+        tvFeedback = (TextView) findViewById(R.id.tvFeedback);
     }
 
     protected void initData() {
@@ -220,6 +223,24 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             @Override
             public void onClick(View v) {
                 openActivity(SettingActivity.class);
+            }
+        });
+        tvLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(LikeActivity.class);
+            }
+        });
+        tvMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(MessageActivity.class);
+            }
+        });
+        tvFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(FeedbackActivity.class);
             }
         });
     }

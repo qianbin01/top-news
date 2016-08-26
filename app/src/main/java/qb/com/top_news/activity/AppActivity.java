@@ -23,7 +23,7 @@ import qb.com.top_news.vo.AppInfo;
 
 public class AppActivity extends BaseActivity {
     private ListView lvApp;
-    private List<AppInfo> list, threadList;
+    private List<AppInfo> list;
     private MyAppAdapter mAdapter;
     private ImageView ivReturn;
     private EditText etSearch;
@@ -130,7 +130,7 @@ public class AppActivity extends BaseActivity {
         public void run() {
             if ("abc".equals(str)) {
             } else {
-                threadList = SpiderApp.getSearch(str, "");
+                List<AppInfo> threadList = SpiderApp.getSearch(str, "");
                 Message message = new Message();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("list", (Serializable) threadList);
@@ -141,6 +141,8 @@ public class AppActivity extends BaseActivity {
         }
     }
 
+
+    //隐藏软键盘
     public void hidden(View v) {
         InputMethodManager imm = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);

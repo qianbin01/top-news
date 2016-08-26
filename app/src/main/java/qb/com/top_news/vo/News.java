@@ -11,20 +11,29 @@ public class News {
     private String thumbnail_pic_s;
     private String thumbnail_pic_s03;
     private String url;
+    private int zan;
+    private int cai;
+    private int like;
 
     public News() {
     }
 
-    public News(String title, String date, String realtype, String category,String author_name, String thumbnail_pic_s, String thumbnail_pic_s03, String url) {
+
+    public News(int id, String title, String date, String realtype, String category, String author_name, String thumbnail_pic_s, String thumbnail_pic_s03, String url, int zan, int cai, int like) {
+        this.id = id;
         this.title = title;
         this.date = date;
         this.realtype = realtype;
-        this.category=category;
+        this.category = category;
         this.author_name = author_name;
         this.thumbnail_pic_s = thumbnail_pic_s;
         this.thumbnail_pic_s03 = thumbnail_pic_s03;
         this.url = url;
+        this.zan = zan;
+        this.cai = cai;
+        this.like = like;
     }
+
     public int getId() {
         return id;
     }
@@ -32,6 +41,7 @@ public class News {
     public void setId(int id) {
         this.id = id;
     }
+
     public String getTitle() {
         return title;
     }
@@ -94,5 +104,29 @@ public class News {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public int  getZan() {
+        return zan;
+    }
+
+    public void setZan(int  zan) {
+        this.zan = zan;
+    }
+
+    public int  getCai() {
+        return cai;
+    }
+
+    public void setCai(int  cai) {
+        this.cai = cai;
+    }
+
+    public int getLike() {
+        return like;
+    }
+
+    public void setLike(int like) {
+        this.like = like;
     }
 }

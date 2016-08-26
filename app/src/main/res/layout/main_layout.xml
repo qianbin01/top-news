@@ -26,7 +26,7 @@
             android:layout_marginEnd="10dp"
             android:src="@drawable/head" />
 
-        <TextView
+        <qb.com.top_news.view.MyTextView
             android:id="@+id/today_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

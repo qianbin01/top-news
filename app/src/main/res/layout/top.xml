@@ -16,7 +16,7 @@
             android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:background="@drawable/left" />
-        <TextView
+        <qb.com.top_news.view.MyTextView
             android:id="@+id/today_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

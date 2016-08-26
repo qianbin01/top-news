@@ -33,7 +33,9 @@
             android:name=".activity.SettingActivity"
             android:launchMode="singleTask" />
         <activity android:name=".activity.LikeActivity" />
-        <activity android:name=".activity.MessageActivity" />
+        <activity
+            android:name=".activity.MessageActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".activity.FeedbackActivity" />
         <activity
             android:name=".activity.AppActivity"
@@ -41,8 +43,10 @@
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".activity.AppDetailActivity" />
         <activity android:name=".activity.TestActivity" />
-        <activity android:name=".activity.UserManagerActivity"/>
-        <activity android:name=".activity.AboutActivity"/>
+        <activity android:name=".activity.UserManagerActivity" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.ChatDetailActivity" />
+
         <service android:name=".service.DownloadService" />
     </application>
 
@@ -50,4 +54,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 </manifest>

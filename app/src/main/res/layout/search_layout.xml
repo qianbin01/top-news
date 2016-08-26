@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            android:hint="@string/search" />
+            android:hint="@string/search_news" />
 
         <ImageView
             android:id="@+id/ivSearch"

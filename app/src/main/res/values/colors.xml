@@ -3,6 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="checked">#ffcc3131</color>
-    <color name="unchecked">#ffffffff</color>
+    <color name="colorGray">#a9b7b7</color>
+    <color name="colorBlue">#56abe4</color>
+    <color name="colorBlueDeep">#3074C1</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGrayDeep">#60000000</color>
+    <color name="colorGrayDeeper">#b0000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorYellow">#c0ffff00</color>
+    <color name="colorGreen">#87B87F</color>
+    <color name="colorGraybg">#2D3E53</color>
+    <color name="colorbg">#F4F4F4</color>
 </resources>
